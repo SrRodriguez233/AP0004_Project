@@ -22,6 +22,7 @@ All experiments share a unified data pipeline and BLEU-based evaluation.
 - [dataset](dataset): Cleaned and retranslated Zh–En data (JSONL)
 - [checkpoints](checkpoints): Trained model checkpoints
 - [figures](figures): Generated figures for the report
+- [mt5_translation_100k]: Checkpoints for T5 mini model finetune results 
 
 ## Data and Preprocessing
 
