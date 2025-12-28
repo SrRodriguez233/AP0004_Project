@@ -10,19 +10,19 @@ All experiments share a unified data pipeline and BLEU-based evaluation.
 
 ## Project Structure
 
-- [Final_Project/report.typ](report.typ): Main report in Chinese
-- [Final_Project/report_en.typ](report_en.typ): Main report in English
-- [Final_Project/hw_requirements.txt](hw_requirements.txt): Original assignment description
-- [Final_Project/data_utils.py](data_utils.py): Data loading, cleaning, tokenization, vocab/SPM helpers
-- [Final_Project/rnn_model.py](rnn_model.py): RNN encoder–decoder with attention
-- [Final_Project/transformer_model.py](transformer_model.py): Custom Transformer NMT (pos/norm ablations)
-- [Final_Project/train.py](train.py): Unified training script for RNN / Transformer
-- [Final_Project/inference.py](inference.py): Inference for RNN / Transformer / pretrained MT5
-- [Final_Project/t5_finetune.py](t5_finetune.py): MT5 fine-tuning script
-- [Final_Project/plot.py](plot.py): Plot loss/BLEU curves and ablation figures
-- [Final_Project/dataset](dataset): Cleaned and retranslated Zh–En data (JSONL)
-- [Final_Project/checkpoints](checkpoints): Trained model checkpoints
-- [Final_Project/figures](figures): Generated figures for the report
+- [report.typ](https://github.com/SrRodriguez233/AP0004_Project/blob/master/report.typ): Main report in Chinese
+- [report_en.typ](https://github.com/SrRodriguez233/AP0004_Project/blob/master/report_en.typ): Main report in English
+- [data_utils.py](https://github.com/SrRodriguez233/AP0004_Project/blob/master/data_utils.py): Data loading, cleaning, tokenization, vocab/SPM helpers
+- [rnn_model.py](https://github.com/SrRodriguez233/AP0004_Project/blob/master/rnn_model.py): RNN encoder–decoder with attention
+- [transformer_model.py](https://github.com/SrRodriguez233/AP0004_Project/blob/master/transformer_model.py): Custom Transformer NMT (pos/norm ablations)
+- [train.py](https://github.com/SrRodriguez233/AP0004_Project/blob/master/train.py): Unified training script for RNN / Transformer
+- [inference.py](https://github.com/SrRodriguez233/AP0004_Project/blob/master/inference.py): Inference for RNN / Transformer / pretrained MT5
+- [t5_finetune.py](https://github.com/SrRodriguez233/AP0004_Project/blob/master/t5_finetune.py): MT5 fine-tuning script
+- [plot.py](https://github.com/SrRodriguez233/AP0004_Project/blob/master/plot.py): Plot loss/BLEU curves and ablation figures
+- [dataset](https://github.com/SrRodriguez233/AP0004_Project/blob/master/dataset): Cleaned and retranslated Zh–En data (JSONL)
+- [checkpoints](https://github.com/SrRodriguez233/AP0004_Project/blob/master/checkpoints): Trained model checkpoints
+- [figures](https://github.com/SrRodriguez233/AP0004_Project/blob/master/figures): Generated figures for the report
+- [mt5_translation_100k](https://github.com/SrRodriguez233/AP0004_Project/blob/master/mt5_translation_100k): Checkpoints for T5 mini model finetune results 
 
 ## Data and Preprocessing
 
@@ -96,7 +96,7 @@ Key findings:
 - Model: `google/mt5-small`
 - Data: same cleaned 100k training set + retranslated val/test
 - Input template: `translate Chinese to English: {zh}`
-- Script: [Final_Project/t5_finetune.py](t5_finetune.py)
+- Script: [t5_finetune.py](t5_finetune.py)
 
 Current baseline (under non-fully-tuned hyperparameters):
 
@@ -108,9 +108,9 @@ The report discusses likely reasons (limited steps, under-tuned LR/beam/length p
 
 ## Training
 
-General training entry point: [Final_Project/train.py](train.py).
+General training entry point: [train.py](train.py).
 
-Example commands (run from `Final_Project/`):
+Example commands (run from ``):
 
 ```bash
 # Word-level RNN + additive attention
@@ -149,7 +149,7 @@ python t5_finetune.py \
 
 ## Inference and Evaluation
 
-RNN / Transformer inference is done via [Final_Project/inference.py](inference.py):
+RNN / Transformer inference is done via [inference.py](inference.py):
 
 ```bash
 # Transformer, beam search on test set
@@ -182,4 +182,4 @@ MT5 inference is done via the `pretrained` mode in `inference.py` (or a separate
 - **Subwords are non-trivial**: Naïvely reusing word-level hyperparameters for SentencePiece RNN fails; subwords require re-tuning.
 - **MT5 baseline**: Current fine-tuning underperforms the best scratch Transformer due to limited tuning, but highlights the potential of pretrained LMs.
 
-For a detailed discussion, ablation figures, and full experimental results, see [Final_Project/report_en.typ](report_en.typ) (or the Chinese version [Final_Project/report.typ](report.typ)).
+For a detailed discussion, ablation figures, and full experimental results, see [report_en.typ](report_en.typ) (or the Chinese version [report.typ](report.typ)).
