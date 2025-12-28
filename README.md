@@ -12,7 +12,6 @@ All experiments share a unified data pipeline and BLEU-based evaluation.
 
 - [report.typ](report.typ): Main report in Chinese
 - [report_en.typ](report_en.typ): Main report in English
-- [hw_requirements.txt](hw_requirements.txt): Original assignment description
 - [data_utils.py](data_utils.py): Data loading, cleaning, tokenization, vocab/SPM helpers
 - [rnn_model.py](rnn_model.py): RNN encoder–decoder with attention
 - [transformer_model.py](transformer_model.py): Custom Transformer NMT (pos/norm ablations)
